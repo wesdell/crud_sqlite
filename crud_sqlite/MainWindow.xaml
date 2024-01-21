@@ -29,6 +29,7 @@
                 Name="searchItem"
                 VerticalAlignment="Center"
                 Height="30"
+                Width="200"
                 Margin="66,0,220,0"
             />
             <Button
@@ -36,6 +37,7 @@
                 Content="Search"
                 VerticalAlignment="Center"
                 Height="30"
+                Width="80"
                 Margin="360,0,99,0"
             />
 
@@ -51,6 +53,7 @@
                 Grid.Row="2"
                 VerticalAlignment="Top"
                 Height="30"
+                Width="80"
                 Margin="28,13,438,0"
             />
             <Button
@@ -59,6 +62,7 @@
                 Grid.Row="2"
                 VerticalAlignment="Top"
                 Height="30"
+                Width="80"
                 Margin="138,13,320,0"
             />
             <Button
@@ -67,6 +71,7 @@
                 Grid.Row="2"
                 VerticalAlignment="Top"
                 Height="30"
+                Width="80"
                 Margin="255,13,208,0"
             />
             <Button
@@ -75,6 +80,7 @@
                 Grid.Row="2"
                 VerticalAlignment="Top"
                 Height="30"
+                Width="50"
                 Margin="381,13,112,0"
             />
             <Button
@@ -83,6 +89,7 @@
                 Grid.Row="2"
                 VerticalAlignment="Top"
                 Height="30"
+                Width="50"
                 Margin="460,13,35,0"
             />
         </Grid>
