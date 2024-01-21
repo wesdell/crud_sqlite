@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:crud_sqlite"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="900" Background="#FFCBC3E3" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -30,15 +30,19 @@
                 VerticalAlignment="Center"
                 Height="30"
                 Width="200"
-                Margin="66,0,220,0"
+                Margin="80,0,370,0"
             />
             <Button
                 Name="btnSearchItem"
                 Content="Search"
                 VerticalAlignment="Center"
+                HorizontalAlignment="Left"
                 Height="30"
-                Width="80"
-                Margin="360,0,99,0"
+                Width="90"
+                Margin="308,0,0,0"
+                Background="LightBlue"
+                BorderBrush="White"
+                Cursor="Hand"
             />
 
             <DataGrid
@@ -49,49 +53,87 @@
 
             <Button
                 Name="btnNewItem"
-                Content="New item"
                 Grid.Row="2"
-                VerticalAlignment="Top"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Left"
                 Height="30"
-                Width="80"
-                Margin="28,13,438,0"
-            />
+                Margin="20,0,0,0"
+                Background="White"
+                BorderBrush="White"
+                Cursor="Hand" Width="80"
+            >
+                <StackPanel Orientation="Horizontal">
+                    <Image Height="20" Source="assets/img/add_file.png" />
+                    <Label Padding="1" VerticalAlignment="Center">New</Label>
+                </StackPanel>
+            </Button>
             <Button
                 Name="btnUpdateItem"
-                Content="Update item"
                 Grid.Row="2"
-                VerticalAlignment="Top"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Left"
                 Height="30"
-                Width="80"
-                Margin="138,13,320,0"
-            />
+                Margin="120,0,0,0"
+                Background="White"
+                BorderBrush="White"
+                Cursor="Hand" Width="80"
+            >
+                <StackPanel Orientation="Horizontal">
+                    <Image Height="20" Source="assets/img/edit_file.png" />
+                    <Label Padding="1" VerticalAlignment="Center">Edit</Label>
+                </StackPanel>
+            </Button>
             <Button
                 Name="btnDeleteItem"
-                Content="Delete item"
                 Grid.Row="2"
                 VerticalAlignment="Top"
+                HorizontalAlignment="Left"
                 Height="30"
                 Width="80"
-                Margin="255,13,208,0"
-            />
+                Margin="220,8,0,0"
+                Background="White"
+                BorderBrush="White"
+                Cursor="Hand"
+            >
+                <StackPanel Orientation="Horizontal">
+                    <Image Height="20" Source="assets/img/remove_file.png" />
+                    <Label Padding="1" VerticalAlignment="Center">Delete</Label>
+                </StackPanel>
+            </Button>
             <Button
                 Name="btnReportItem"
-                Content="Report"
                 Grid.Row="2"
-                VerticalAlignment="Top"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Left"
                 Height="30"
-                Width="50"
-                Margin="381,13,112,0"
-            />
+                Width="95"
+                Margin="380,0,0,0"
+                Background="White"
+                BorderBrush="White"
+                Cursor="Hand"
+            >
+                <StackPanel Orientation="Horizontal">
+                    <Image Height="20" Source="/assets/img/documents.png" />
+                    <Label Padding="1" VerticalAlignment="Center">Report</Label>
+                </StackPanel>
+            </Button>
             <Button
                 Name="btnClose"
-                Content="Close"
                 Grid.Row="2"
-                VerticalAlignment="Top"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Left"
                 Height="30"
-                Width="50"
-                Margin="460,13,35,0"
-            />
+                Width="90"
+                Margin="495,0,0,0"
+                Background="White"
+                BorderBrush="White"
+                Cursor="Hand"
+            >
+                <StackPanel Orientation="Horizontal">
+                    <Image Height="20" Source="/assets/img/logout.png" />
+                    <Label Padding="1" VerticalAlignment="Center">Log out</Label>
+                </StackPanel>
+            </Button>
         </Grid>
 
         <Grid Grid.Column="1">
@@ -199,24 +241,30 @@
             />
 
             <Button
-                 Name="btnSave"
-                 Content="Save"
-                 Grid.Row="4"
-                 HorizontalAlignment="Left"
-                 VerticalAlignment="Center"
-                 Margin="40, 0, 0, 0"
-                 Width="50"
-                 Height="30"
+                Name="btnSave"
+                Content="Save"
+                Grid.Row="4"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Margin="40, 0, 0, 0"
+                Width="60"
+                Height="30"
+                Background="LightBlue"
+                BorderBrush="White"
+                Cursor="Hand"
             />
             <Button
-                 Name="btnCancel"
-                 Content="Cancel"
-                 Grid.Row="4"
-                 HorizontalAlignment="Right"
-                 VerticalAlignment="Center"
-                 Margin="0, 0, 40, 0"
-                 Width="50"
-                 Height="30"
+                Name="btnCancel"
+                Content="Cancel"
+                Grid.Row="4"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Margin="0, 0, 40, 0"
+                Width="60"
+                Height="30"
+                Background="#FFFF7F7F"
+                BorderBrush="White"
+                Cursor="Hand"
             />
         </Grid>
     </Grid>

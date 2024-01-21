@@ -118,6 +118,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\img\add_file.png" />
+    <Resource Include="assets\img\documents.png" />
+    <Resource Include="assets\img\edit_file.png" />
+    <Resource Include="assets\img\file.png" />
+    <Resource Include="assets\img\logout.png" />
+    <Resource Include="assets\img\remove_file.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
