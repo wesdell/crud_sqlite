@@ -20,6 +20,67 @@ namespace crud_sqlite
     /// </summary>
     public partial class MainWindow : Window
     {
+        int itemId = 0;
+        int categoryId = 0;
+        int measureId = 0;
+
+        private void ChangeItemSectionReadOnly(bool state)
+        {
+            itemDescription.IsReadOnly = state;
+            brandDescription.IsReadOnly = state;
+        }
+
+        private void CleanItemSection()
+        {
+            itemDescription.Clear();
+            brandDescription.Clear();
+            measureDescription.Clear();
+            categoryDescription.Clear();
+        }
+
+        private void ActiveItemSectionButtons(bool state)
+        {
+            if (state)
+            {
+                btnMeasure.Visibility = Visibility.Visible;
+                btnCategory.Visibility = Visibility.Visible;
+                btnCancel.Visibility = Visibility.Visible;
+                btnSave.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btnMeasure.Visibility = Visibility.Hidden;
+                btnCategory.Visibility = Visibility.Hidden;
+                btnCancel.Visibility = Visibility.Hidden;
+                btnSave.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void ChangeOperatiosButtonsEnabledState(bool state)
+        {
+            btnNewItem.IsEnabled = state;
+            btnEditItem.IsEnabled = state;
+            btnReportItem.IsEnabled = state;
+            btnDeleteItem.IsEnabled = state;
+            btnLogOut.IsEnabled = state;
+        }
+
+        private void CreateNewItem(object sender, RoutedEventArgs e)
+        {
+            this.ChangeItemSectionReadOnly(false);
+            this.CleanItemSection();
+            this.ActiveItemSectionButtons(true);
+            this.ChangeOperatiosButtonsEnabledState(false);
+        }
+
+        private void CancelNewItem(object sender, RoutedEventArgs e)
+        {
+            this.ChangeItemSectionReadOnly(true);
+            this.CleanItemSection();
+            this.ActiveItemSectionButtons(false);
+            this.ChangeOperatiosButtonsEnabledState(true);
+        }
+
         public MainWindow()
         {
             InitializeComponent();
