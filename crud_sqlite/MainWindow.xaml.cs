@@ -1,4 +1,5 @@
-﻿using System;
+﻿using crud_sqlite.database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -74,6 +75,12 @@ namespace crud_sqlite
             dataGridItem.IsEnabled = state;
         }
 
+        private void GetItems()
+        {
+            Items items = new Items();
+            dataGridItem.ItemsSource = items.GetItems().DefaultView;
+        }
+
         private void CreateNewItem(object sender, RoutedEventArgs e)
         {
             saveAction = CREATE_STATE;
@@ -107,6 +114,11 @@ namespace crud_sqlite
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.GetItems();
         }
     }
 }
