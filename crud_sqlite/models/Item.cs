@@ -14,8 +14,8 @@ namespace crud_sqlite.models
 
         public int Category_Id { get; set; }
 
-        public string Description { get; set; }
+        public String Description { get; set; }
 
-        public string Brand { get; set; }
+        public String Brand { get; set; }
     }
 }
