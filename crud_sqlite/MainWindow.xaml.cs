@@ -30,6 +30,14 @@ namespace crud_sqlite
         int categoryId = 0;
         int measureId = 0;
 
+        private void FormatItemTable()
+        {
+            for (int i = 0; i < dataGridItem.Columns.Count; i += 1)
+            {
+                dataGridItem.Columns[i].Width = 90;
+            }
+        }
+
         private void ChangeItemSectionReadOnly(bool state)
         {
             itemDescription.IsReadOnly = state;
@@ -75,10 +83,11 @@ namespace crud_sqlite
             dataGridItem.IsEnabled = state;
         }
 
-        private void GetItems()
+        private void GetItems(String item)
         {
             Items items = new Items();
-            dataGridItem.ItemsSource = items.GetItems().DefaultView;
+            dataGridItem.ItemsSource = items.GetItems(item).DefaultView;
+            this.FormatItemTable();
         }
 
         private void CreateNewItem(object sender, RoutedEventArgs e)
@@ -111,14 +120,15 @@ namespace crud_sqlite
             this.ChangeOperatiosButtonsEnabledState(true);
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.GetItems("%");
+        }
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.GetItems();
-        }
     }
 }
