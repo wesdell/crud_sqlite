@@ -1,4 +1,5 @@
 ﻿using crud_sqlite.database;
+using crud_sqlite.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -86,7 +87,7 @@ namespace crud_sqlite
         private void GetItems(String item)
         {
             Items items = new Items();
-            dataGridItem.ItemsSource = items.GetItems(item).DefaultView;
+            dataGridItem.ItemsSource = items.GetItemsByName(item).DefaultView;
             this.FormatItemTable();
         }
 
@@ -109,7 +110,33 @@ namespace crud_sqlite
 
         private void SaveItem(object sender, RoutedEventArgs e)
         {
+            String response;
+            Item item = new Item();
+            item.Id = itemId;
+            item.Description = itemDescription.Text.Trim();
+            item.Brand = brandDescription.Text.Trim();
+            item.Measure_Id = 1;
+            item.Category_Id = 1;
 
+            Items items = new Items();
+            response = items.CreateUpdateItem(saveAction, item);
+
+            if (response.Equals("Success"))
+            {
+                this.GetItems("%");
+                MessageBox.Show("Successful register.", "System message", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show(response);
+            }
+
+            saveAction = DEFAULT_STATE;
+
+            this.ChangeItemSectionReadOnly(true);
+            this.CleanItemSection();
+            this.ActiveItemSectionButtons(false);
+            this.ChangeOperatiosButtonsEnabledState(true);
         }
 
         private void CancelItem(object sender, RoutedEventArgs e)
