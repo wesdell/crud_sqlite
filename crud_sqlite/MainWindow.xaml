@@ -254,6 +254,7 @@
             <Button
                 Name="btnSave"
                 Content="Save"
+                Click="SaveItem"
                 Grid.Row="4"
                 Visibility="Hidden"
                 HorizontalAlignment="Left"
@@ -268,9 +269,9 @@
             <Button
                 Name="btnCancel"
                 Content="Cancel"
+                Click="CancelItem"
                 Grid.Row="4"
                 Visibility="Hidden"
-                Click="CancelNewItem"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
                 Margin="0, 0, 40, 0"

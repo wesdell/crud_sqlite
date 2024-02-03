@@ -20,6 +20,11 @@ namespace crud_sqlite
     /// </summary>
     public partial class MainWindow : Window
     {
+        const int DEFAULT_STATE = 0;
+        const int CREATE_STATE = 1;
+        const int UPDATE_STATE = 2;
+
+        int saveAction = DEFAULT_STATE;
         int itemId = 0;
         int categoryId = 0;
         int measureId = 0;
@@ -63,17 +68,35 @@ namespace crud_sqlite
             btnReportItem.IsEnabled = state;
             btnDeleteItem.IsEnabled = state;
             btnLogOut.IsEnabled = state;
+
+            btnSearchItem.IsEnabled = state;
+            searchItem.IsEnabled = state;
+            dataGridItem.IsEnabled = state;
         }
 
         private void CreateNewItem(object sender, RoutedEventArgs e)
         {
+            saveAction = CREATE_STATE;
+
             this.ChangeItemSectionReadOnly(false);
             this.CleanItemSection();
             this.ActiveItemSectionButtons(true);
             this.ChangeOperatiosButtonsEnabledState(false);
+
+            itemDescription.Focus();
         }
 
-        private void CancelNewItem(object sender, RoutedEventArgs e)
+        private void UpdateItem(object sender, RoutedEventArgs e)
+        {
+            saveAction = UPDATE_STATE;
+        }
+
+        private void SaveItem(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CancelItem(object sender, RoutedEventArgs e)
         {
             this.ChangeItemSectionReadOnly(true);
             this.CleanItemSection();
