@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:crud_sqlite"
         mc:Ignorable="d"
-        Title="MeasureWindow" Height="450" Width="800">
+        Title="MeasureWindow" Height="200" Width="400" Background="#FFCBC3E3" ResizeMode="NoResize" Loaded="Window_Loaded">
     <Grid Margin="10">
         <StackPanel Orientation="Vertical">
             <DataGrid
@@ -13,7 +13,7 @@
                 MinHeight="100"
             />
             <Button
-                x:Name="btnApplyMeasure"
+                Name="btnApplyMeasure"
                 Click="ApplyMeasure"
                 Content="Apply"
                 Width="100"

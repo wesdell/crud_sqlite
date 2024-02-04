@@ -1,4 +1,7 @@
-﻿using System;
+﻿using crud_sqlite.database;
+using crud_sqlite.models;
+using crud_sqlite.services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,12 +27,30 @@ namespace crud_sqlite
             InitializeComponent();
         }
 
+        private void FormatMeasureDataTable()
+        {
+            Format format = new Format();
+            format.FormatDataGrid(dataGridMeasure);
+        }
+
+        private void GetMeasures()
+        {
+            Measures measures = new Measures();
+            dataGridMeasure.ItemsSource = measures.GetMeasures().DefaultView;
+            this.FormatMeasureDataTable();
+        }
+
         private void ApplyMeasure(object sender, RoutedEventArgs e)
         {
             if (dataGridMeasure.SelectedValue != null)
             {
                 this.Close();
             }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.GetMeasures();
         }
     }
 }
