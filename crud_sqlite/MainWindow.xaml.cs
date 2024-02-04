@@ -108,6 +108,12 @@ namespace crud_sqlite
             saveAction = UPDATE_STATE;
         }
 
+        private void SelectMeasure(object sender, RoutedEventArgs e)
+        {
+            MeasureWindow measureWindow = new MeasureWindow();
+            measureWindow.Show();
+        }
+
         private void SaveItem(object sender, RoutedEventArgs e)
         {
             String response;

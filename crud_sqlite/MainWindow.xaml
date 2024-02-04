@@ -207,6 +207,7 @@
             />
             <Button
                 Name="btnMeasure"
+                Click="SelectMeasure"
                 Content=":::"
                 Grid.Row="2"
                 Visibility="Hidden"
