@@ -1,5 +1,6 @@
 ﻿using crud_sqlite.database;
 using crud_sqlite.models;
+using crud_sqlite.services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,12 +32,10 @@ namespace crud_sqlite
         int categoryId = 0;
         int measureId = 0;
 
-        private void FormatItemTable()
+        private void FormatItemDataTable()
         {
-            for (int i = 0; i < dataGridItem.Columns.Count; i += 1)
-            {
-                dataGridItem.Columns[i].Width = 90;
-            }
+            Format format = new Format();
+            format.FormatDataGrid(dataGridItem);
         }
 
         private void ChangeItemSectionReadOnly(bool state)
@@ -88,7 +87,7 @@ namespace crud_sqlite
         {
             Items items = new Items();
             dataGridItem.ItemsSource = items.GetItemsByName(item).DefaultView;
-            this.FormatItemTable();
+            this.FormatItemDataTable();
         }
 
         private void CreateNewItem(object sender, RoutedEventArgs e)
@@ -111,7 +110,7 @@ namespace crud_sqlite
         private void SelectMeasure(object sender, RoutedEventArgs e)
         {
             MeasureWindow measureWindow = new MeasureWindow();
-            measureWindow.Show();
+            measureWindow.ShowDialog();
         }
 
         private void SaveItem(object sender, RoutedEventArgs e)
