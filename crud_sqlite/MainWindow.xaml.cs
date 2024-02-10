@@ -109,8 +109,12 @@ namespace crud_sqlite
 
         private void SelectMeasure(object sender, RoutedEventArgs e)
         {
+            Measures measures = new Measures();
             MeasureWindow measureWindow = new MeasureWindow();
             measureWindow.ShowDialog();
+            this.measureId = Convert.ToInt16(measureWindow.dataGridMeasure.SelectedValue);
+            Console.WriteLine(this.measureId + " measure id");
+            measureDescription.Text = measures.GetMeasureById(measureId);
         }
 
         private void SaveItem(object sender, RoutedEventArgs e)
