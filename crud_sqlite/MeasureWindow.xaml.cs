@@ -37,6 +37,7 @@ namespace crud_sqlite
         {
             Measures measures = new Measures();
             dataGridMeasure.ItemsSource = measures.GetMeasures().DefaultView;
+            dataGridMeasure.SelectedValuePath = "id";
             this.FormatMeasureDataTable();
         }
 
@@ -45,6 +46,10 @@ namespace crud_sqlite
             if (dataGridMeasure.SelectedValue != null)
             {
                 this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Select a register.", "System message", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
 
