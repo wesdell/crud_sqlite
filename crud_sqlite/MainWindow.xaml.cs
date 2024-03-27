@@ -113,8 +113,16 @@ namespace crud_sqlite
             MeasureWindow measureWindow = new MeasureWindow();
             measureWindow.ShowDialog();
             this.measureId = Convert.ToInt16(measureWindow.dataGridMeasure.SelectedValue);
-            Console.WriteLine(this.measureId + " measure id");
             measureDescription.Text = measures.GetMeasureById(measureId);
+        }
+
+        private void SelectCategory(object sender, RoutedEventArgs e)
+        {
+            Categories categories = new Categories();
+            CategoryWindow categoryWindow = new CategoryWindow();
+            categoryWindow.ShowDialog();
+            this.categoryId = Convert.ToInt16(categoryWindow.dataGridCategory.SelectedValue);
+            categoryDescription.Text = categories.GetCategoryById(categoryId);
         }
 
         private void SaveItem(object sender, RoutedEventArgs e)

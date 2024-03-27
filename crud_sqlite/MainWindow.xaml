@@ -241,6 +241,7 @@
 
             <Button
                 Name="btnCategory"
+                Click="SelectCategory"
                 Content=":::"
                 Grid.Row="3"
                 Visibility="Hidden"
