@@ -149,6 +149,9 @@ namespace crud_sqlite
             }
 
             saveAction = DEFAULT_STATE;
+            this.itemId = 0;
+            this.measureId = 0;
+            this.categoryId = 0;
 
             this.ChangeItemSectionReadOnly(true);
             this.CleanItemSection();
@@ -158,6 +161,11 @@ namespace crud_sqlite
 
         private void CancelItem(object sender, RoutedEventArgs e)
         {
+            saveAction = DEFAULT_STATE;
+            this.itemId = 0;
+            this.measureId = 0;
+            this.categoryId = 0;
+
             this.ChangeItemSectionReadOnly(true);
             this.CleanItemSection();
             this.ActiveItemSectionButtons(false);
