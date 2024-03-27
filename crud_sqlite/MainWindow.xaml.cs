@@ -132,8 +132,8 @@ namespace crud_sqlite
             item.Id = itemId;
             item.Description = itemDescription.Text.Trim();
             item.Brand = brandDescription.Text.Trim();
-            item.Measure_Id = 1;
-            item.Category_Id = 1;
+            item.Measure_Id = this.measureId;
+            item.Category_Id = this.categoryId;
 
             Items items = new Items();
             response = items.CreateUpdateItem(saveAction, item);
