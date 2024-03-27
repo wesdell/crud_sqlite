@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace crud_sqlite
 {
-    /// <summary>
-    /// Interaction logic for MeasureWindow.xaml
-    /// </summary>
     public partial class MeasureWindow : Window
     {
         public MeasureWindow()
