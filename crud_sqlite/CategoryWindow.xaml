@@ -1,0 +1,27 @@
+﻿<Window x:Class="crud_sqlite.CategoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:crud_sqlite"
+        mc:Ignorable="d"
+        Title="CategoryWindow" Height="200" Width="400" Background="#FFCBC3E3" ResizeMode="NoResize" Loaded="Window_Loaded">
+
+    <Grid Margin="10">
+        <StackPanel Orientation="Vertical">
+            <DataGrid
+            Name="dataGridCategory"
+            MinHeight="100"
+        />
+            <Button
+            Name="btnApplyCategory"
+            Click="ApplyCategory"
+            Content="Apply"
+            Width="100"
+            Height="30"
+            Margin="10"
+            Cursor="Hand"
+        />
+        </StackPanel>
+    </Grid>
+</Window>
