@@ -68,7 +68,12 @@ namespace crud_sqlite.database
                 }
                 else
                 {
-                    SQLQuery = "";
+                    SQLQuery = "UPDATE item SET description = '" + item.Description + "', " +
+                        "brand = '" + item.Brand + "', " +
+                        "measure_id = '" + item.Measure_Id + "', " +
+                        "category_id = '" + item.Category_Id + "'" +
+                        "WHERE id = " + item.Id;
+
                 }
 
 
