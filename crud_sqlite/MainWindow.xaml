@@ -47,6 +47,7 @@
 
             <DataGrid
                 Name="dataGridItem"
+                SelectionChanged="ItemSelectionChanged"
                 Grid.Row="1"
                 Margin="10"
             />
@@ -70,6 +71,7 @@
             </Button>
             <Button
                 Name="btnEditItem"
+                Click="UpdateItem"
                 Grid.Row="2"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Left"
