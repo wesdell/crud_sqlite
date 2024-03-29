@@ -3,6 +3,7 @@ using crud_sqlite.models;
 using crud_sqlite.services;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,9 +19,6 @@ using System.Windows.Shapes;
 
 namespace crud_sqlite
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         const int DEFAULT_STATE = 0;
@@ -92,7 +90,7 @@ namespace crud_sqlite
 
         private void CreateNewItem(object sender, RoutedEventArgs e)
         {
-            saveAction = CREATE_STATE;
+            this.saveAction = CREATE_STATE;
 
             this.ChangeItemSectionReadOnly(false);
             this.CleanItemSection();
@@ -104,7 +102,14 @@ namespace crud_sqlite
 
         private void UpdateItem(object sender, RoutedEventArgs e)
         {
-            saveAction = UPDATE_STATE;
+            if (dataGridItem.SelectedValue != null)
+            {
+                this.saveAction = UPDATE_STATE;
+
+                this.ChangeItemSectionReadOnly(false);
+                this.ActiveItemSectionButtons(true);
+                this.ChangeOperatiosButtonsEnabledState(false);
+            }
         }
 
         private void SelectMeasure(object sender, RoutedEventArgs e)
@@ -129,7 +134,7 @@ namespace crud_sqlite
         {
             String response;
             Item item = new Item();
-            item.Id = itemId;
+            item.Id = this.itemId;
             item.Description = itemDescription.Text.Trim();
             item.Brand = brandDescription.Text.Trim();
             item.Measure_Id = this.measureId;
@@ -175,6 +180,23 @@ namespace crud_sqlite
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.GetItems("%");
+        }
+
+        private void ItemSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataGrid dataGrid = sender as DataGrid;
+            DataRowView rowSelected = dataGrid.SelectedItem as DataRowView;
+
+            if (rowSelected != null)
+            {
+                itemDescription.Text = rowSelected["description"].ToString();
+                brandDescription.Text = rowSelected["brand"].ToString();
+                measureDescription.Text = rowSelected["measure"].ToString();
+                categoryDescription.Text = rowSelected["category"].ToString();
+                this.itemId = Convert.ToInt16(rowSelected["id"].ToString());
+                this.categoryId = Convert.ToInt16(rowSelected["category_id"].ToString());
+                this.measureId = Convert.ToInt16(rowSelected["measure_id"].ToString());
+            }
         }
 
         public MainWindow()
